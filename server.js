@@ -20,13 +20,7 @@ app.use(cors());
 app.set("trust proxy", 1);
 app.use(cookieParser());
 
-app.use((req, res, next) => {
-    if (req.cookies.loginok !== 'ok' && !req.path.includes('login') && !req.path.includes('back')) {
-        return res.redirect('/login');
-    } else {
-        next();
-    }
-});
+
 
 app.get('/', (req, res) => {
   if (req.query.r === 'y') {
